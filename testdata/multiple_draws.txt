@@ -1,0 +1,7 @@
+3	4
+Alice	Team A	10
+Bob	Team B	10
+Charlie	Team C	5
+Diana	Team A	5
+Eve	Team B	3
+Frank	Team C	1

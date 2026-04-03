@@ -1,0 +1,13 @@
+5	6
+Alice	Team A	42
+Bob	Team B	38
+Charlie	Team C	38
+Diana	Team D	30
+Eve	Team E	25
+Frank	Team A	25
+Grace	Team B	20
+Henry	Team C	15
+Iris	Team D	10
+Jack	Team E	5
+Kate	Team A	0
+Leo	Team B	0

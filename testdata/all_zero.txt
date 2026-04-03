@@ -1,0 +1,4 @@
+2	2
+Alice	Team A	0
+Bob	Team B	0
+Charlie	Team C	0
