@@ -31,14 +31,14 @@ func FormatPhase1State(qualified []model.Candidate,
 	for i, c := range qualified {
 		drawTag := ""
 		if inDraw[c.Name] {
-			drawTag = "DRAW"
+			drawTag = " [DRAW]"
 		}
 		sb.WriteString(fmt.Sprintf("  %d. %-20s [%s] - %d votes%s\n",
 			i+1, c.Name, c.TeamName, c.VoteCount, drawTag))
 	}
 
 	if len(draws) > 0 {
-		sb.WriteString("\n Draws detected (must be resolved in Phase 2):\n")
+		sb.WriteString("\nDraws detected (must be resolved in Phase 2):\n")
 		for _, group := range draws {
 			sb.WriteString(fmt.Sprintf("  Tied at %d votes: ", group[0].VoteCount))
 			names := make([]string, len(group))
