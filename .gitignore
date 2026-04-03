@@ -1,0 +1,10 @@
+# Binaries
+vote-rank
+*.exe
+
+# Test cache
+*.test
+
+# IDE
+.idea/
+.vscode/
