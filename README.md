@@ -34,12 +34,14 @@ candidate-name    team-name    vote-count
 
 Example:
 
+```
 3    2
 Alice    Team A    10
 Bob      Team B    10
 Charlie  Team A    5
 Diana    Team C    0
 Eve      Team B    3
+```
 
 ## How It Works
 
@@ -74,6 +76,7 @@ go test -race ./...
 
 ## Project Structure
 
+```
 vote-rank/
 ├── cmd/              # CLI commands (Cobra)
 ├── internal/
@@ -84,7 +87,8 @@ vote-rank/
 ├── testdata/         # Sample input files for tests
 ├── docs/             # ADR and WBS documentation
 └── .github/
-└── workflows/    # CI/CD pipeline (GitHub Actions)
+    └── workflows/    # CI/CD pipeline (GitHub Actions)
+```
 
 ## Documentation
 
