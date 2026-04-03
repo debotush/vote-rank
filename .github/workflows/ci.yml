@@ -35,7 +35,7 @@ jobs:
         run: go test -v -race ./...
 
       - name: Build binary
-        run: go build -o vote-rank ./...
+        run: go build -o vote-rank .
 
   release:
     runs-on: ubuntu-latest
