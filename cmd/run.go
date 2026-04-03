@@ -115,8 +115,6 @@ func pressEnter(reader *bufio.Reader, prompt string) {
 	fmt.Print(prompt)
 	_, err := reader.ReadString('\n')
 	if err != nil {
-		fmt.Errorf("failed to instruction: %w", err)
-
-		return
+		fmt.Println("failed to instruction: %w", err)
 	}
 }
