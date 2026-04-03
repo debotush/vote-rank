@@ -95,3 +95,35 @@ func TestPhase2_MultipleDrawGroups(t *testing.T) {
         t.Errorf("expected Charlie fourth, got %s", result[3].Name)
     }
 }
+
+func TestPhase2_CaseInsensitiveResolution(t *testing.T) {
+    qualified := []model.Candidate{
+        {Name: "Alice", TeamName: "Team A", VoteCount: 10},
+        {Name: "Bob",   TeamName: "Team B", VoteCount: 10},
+        {Name: "Eve",   TeamName: "Team B", VoteCount: 3},
+    }
+
+    draws := [][]model.Candidate{
+        {
+            {Name: "Alice", TeamName: "Team A", VoteCount: 10},
+            {Name: "Bob",   TeamName: "Team B", VoteCount: 10},
+        },
+    }
+
+    // User typed with wrong case
+    resolution := map[string][]string{
+        "10": {"ALice", "BOB"},
+    }
+
+    result := ranking.Phase2WithResolution(qualified, draws, resolution)
+
+    if len(result) != 3 {
+        t.Fatalf("expected 3 candidates, got %d — case mismatch dropped a candidate", len(result))
+    }
+    if result[0].Name != "Alice" {
+        t.Errorf("expected Alice first, got %s", result[0].Name)
+    }
+    if result[1].Name != "Bob" {
+        t.Errorf("expected Bob second, got %s", result[1].Name)
+    }
+}

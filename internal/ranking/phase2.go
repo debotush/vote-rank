@@ -2,6 +2,7 @@ package ranking
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/debotush/vote-rank/internal/model"
 )
@@ -29,7 +30,7 @@ func Phase2WithResolution(
 
 	byName := make(map[string]model.Candidate)
 	for _, c := range qualified {
-		byName[c.Name] = c
+		byName[strings.ToLower(c.Name)] = c
 	}
 
 	result := make([]model.Candidate, 0, len(qualified))
@@ -41,7 +42,7 @@ func Phase2WithResolution(
 		if order, hasResolution := resolvedOrder[c.VoteCount]; hasResolution && !visited[c.Name] {
 
 			for _, name := range order {
-				if candidate, ok := byName[name]; ok {
+				if candidate, ok := byName[strings.ToLower(name)]; ok {
 					result = append(result, candidate)
 					visited[name] = true
 				}
@@ -50,7 +51,7 @@ func Phase2WithResolution(
 			for i < len(qualified) && qualified[i].VoteCount == c.VoteCount {
 				i++
 			}
-		} else if !visited[c.Name] {
+		} else if !visited[strings.ToLower(c.Name)] {
 			result = append(result, c)
 			visited[c.Name] = true
 			i++
